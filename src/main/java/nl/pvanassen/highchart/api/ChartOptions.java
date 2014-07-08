@@ -1,11 +1,6 @@
 package nl.pvanassen.highchart.api;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.*;
 
 import nl.pvanassen.highchart.api.base.BaseObject;
 import nl.pvanassen.highchart.api.utils.JsonArray;
@@ -47,6 +42,17 @@ public class ChartOptions extends BaseObject {
 
     @XmlElement
     private Axis              yAxis;
+    
+    @SuppressWarnings("unused")
+	private void addSeries(String seriesName, double[] datas ) {
+
+        Series newSeries = new Series().setName( seriesName );
+        final JsonArray<Point> seriesDatas = newSeries.getData();
+        for ( double d : datas ) {
+            seriesDatas.pushElement( new Point().setY( d ) );
+        }
+        this.getSeries().pushElement( newSeries );
+    }
 
     public Chart getChart() {
         if ( chart == null ) {
