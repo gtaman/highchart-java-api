@@ -43,12 +43,11 @@ public class ChartOptions extends BaseObject {
     @XmlElement
     private Axis              yAxis;
     
-    @SuppressWarnings("unused")
-	private void addSeries(String seriesName, double[] datas ) {
+	public void addSeries(String seriesName, double[] data ) {
 
         Series newSeries = new Series().setName( seriesName );
         final JsonArray<Point> seriesDatas = newSeries.getData();
-        for ( double d : datas ) {
+        for ( double d : data ) {
             seriesDatas.pushElement( new Point().setY( d ) );
         }
         this.getSeries().pushElement( newSeries );
