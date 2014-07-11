@@ -1,7 +1,6 @@
 package nl.pvanassen.highchart.api.base;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.*;
 
 import nl.pvanassen.highchart.api.shared.Jsonify;
 
