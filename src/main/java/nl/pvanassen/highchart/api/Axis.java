@@ -1,16 +1,11 @@
 package nl.pvanassen.highchart.api;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.*;
 
-import nl.pvanassen.highchart.api.axis.AxisLabels;
-import nl.pvanassen.highchart.api.axis.AxisPlotLines;
+import nl.pvanassen.highchart.api.axis.*;
 import nl.pvanassen.highchart.api.base.BaseObject;
 import nl.pvanassen.highchart.api.format.DateTimeLabelFormats;
-import nl.pvanassen.highchart.api.utils.ArrayString;
-import nl.pvanassen.highchart.api.utils.JsonArray;
+import nl.pvanassen.highchart.api.utils.*;
 
 @XmlAccessorType( XmlAccessType.NONE )
 public class Axis extends BaseObject {
@@ -159,5 +154,53 @@ public class Axis extends BaseObject {
         this.type = type;
         return this;
     }
+
+	public Boolean getStartOnTick() {
+		return startOnTick;
+	}
+
+	public void setStartOnTick(Boolean startOnTick) {
+		this.startOnTick = startOnTick;
+	}
+
+	public Boolean getShowFirstLabel() {
+		return showFirstLabel;
+	}
+
+	public void setShowFirstLabel(Boolean showFirstLabel) {
+		this.showFirstLabel = showFirstLabel;
+	}
+
+	public void setMaxZoom(Integer maxZoom) {
+		this.maxZoom = maxZoom;
+	}
+
+	public void setTickInterval(Double tickInterval) {
+		this.tickInterval = tickInterval;
+	}
+
+	public void setMin(Double min) {
+		this.min = min;
+	}
+
+	public void setMax(Double max) {
+		this.max = max;
+	}
+
+	public void setLabels(AxisLabels labels) {
+		this.labels = labels;
+	}
+
+	public void setDateTimeLabelFormats(DateTimeLabelFormats dateTimeLabelFormats) {
+		this.dateTimeLabelFormats = dateTimeLabelFormats;
+	}
+
+	public void setCategories(ArrayString categories) {
+		this.categories = categories;
+	}
+
+	public void setTitle(Title title) {
+		this.title = title;
+	}
 
 }

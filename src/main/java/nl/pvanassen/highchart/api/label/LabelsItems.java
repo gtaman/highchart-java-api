@@ -1,8 +1,6 @@
 package nl.pvanassen.highchart.api.label;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 import nl.pvanassen.highchart.api.base.Style;
 
@@ -13,6 +11,8 @@ public class LabelsItems {
     private String html;
 
     private Style  style;
+    
+    private String color;
 
     public LabelsItems() {
         style = new Style();
@@ -36,5 +36,17 @@ public class LabelsItems {
         this.html = html;
         return this;
     }
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public void setStyle(Style style) {
+		this.style = style;
+	}
 
 }

@@ -43,14 +43,13 @@ public class ChartOptions extends BaseObject {
     @XmlElement
     private Axis              yAxis;
     
-	public void addSeries(String seriesName, double[] data ) {
-
-        Series newSeries = new Series().setName( seriesName );
-        final JsonArray<Point> seriesDatas = newSeries.getData();
-        for ( double d : data ) {
-            seriesDatas.pushElement( new Point().setY( d ) );
-        }
-        this.getSeries().pushElement( newSeries );
+	public void addSeries(String name, double[] data ) {
+//		Series newSeries = new Series().setName( seriesName );
+//        final JsonArray<Point> seriesDatas = newSeries.getData();
+//        for ( double d : data ) {
+//            seriesDatas.pushElement( new Point().setY( d ) );
+//        }
+        this.getSeries().pushElement( new Series(name, data) );
     }
 
     public Chart getChart() {

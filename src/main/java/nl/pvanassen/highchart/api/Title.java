@@ -1,11 +1,8 @@
 package nl.pvanassen.highchart.api;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.*;
 
-import nl.pvanassen.highchart.api.base.BaseObject;
-import nl.pvanassen.highchart.api.base.Style;
+import nl.pvanassen.highchart.api.base.*;
 
 @XmlAccessorType( XmlAccessType.NONE )
 public class Title extends BaseObject {
@@ -17,6 +14,10 @@ public class Title extends BaseObject {
 
     @XmlElement
     private Integer margin;
+    
+    public Title(String title){
+    	this.text=title;
+    }
 
     public Title() {
         style = null;

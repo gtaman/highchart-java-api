@@ -1,11 +1,6 @@
 package nl.pvanassen.highchart.api;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 import nl.pvanassen.highchart.api.base.BaseObject;
 import nl.pvanassen.highchart.api.plotoption.PlotMarkerStates;
@@ -35,6 +30,25 @@ public class Series extends BaseObject {
     private String           size;
 
     private SeriesCenter     center;
+    
+    public Series(){};
+    
+    public Series(String name, String type, double[] data){
+    	this(name, data);
+    	this.type=type;
+    }
+    
+    public Series(String name, double[] data){
+    	this.name=name;
+    	this.data=new JsonArray<Point>();
+        pushData(data);
+    }
+    
+    private void pushData(double[] data){
+    	for ( double d : data ) {
+            this.getData().pushElement( new Point().setY( d ) );
+        }
+    }
 
     public String getCenterX() {
         return ( center != null ) ? center.getX() : null;

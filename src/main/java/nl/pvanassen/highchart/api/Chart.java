@@ -7,6 +7,8 @@ public class Chart extends BaseObject {
     private String  zoomType;
 
     private String  backgroundColor;
+    
+    private String renderTo;
 
     private Integer marginRight;
 
@@ -102,5 +104,33 @@ public class Chart extends BaseObject {
         this.zoomType = zoomType;
         return this;
     }
+
+	public String getRenderTo() {
+		return renderTo;
+	}
+
+	public void setRenderTo(String renderTo) {
+		this.renderTo = renderTo;
+	}
+
+	public void setMarginRight(Integer marginRight) {
+		this.marginRight = marginRight;
+	}
+
+	public void setMarginBottom(Integer marginBottom) {
+		this.marginBottom = marginBottom;
+	}
+
+	public void setWidth(Integer width) {
+		this.width = width;
+	}
+
+	public void setHeight(Integer height) {
+		this.height = height;
+	}
+
+	public void setDefaultSeriesType(String defaultSeriesType) {
+		this.defaultSeriesType = defaultSeriesType;
+	}
 
 }
