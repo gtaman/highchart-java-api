@@ -43,12 +43,36 @@ public class ChartOptions extends BaseObject {
     @XmlElement
     private Axis              yAxis;
     
+    public ChartOptions(){};
+    
+    //Set up defaults, and set chart options from a definition
+    public ChartOptions(ChartDefinition chartDef){
+    	//By default it will look for a div named chartdiv
+    	this.getChart().setRenderTo("chartdiv");
+    	//Set chartType
+    	if(chartDef.getChartType().getSeriesType()!=null){
+    		this.getChart().setDefaultSeriesType(chartDef.getChartType().getSeriesType());
+    	}
+    	//Set plotOptions
+    	this.setPlotOptions(chartDef.getChartType().getPlotOptions());
+    	//Set up titles
+    	this.getTitle().setText(chartDef.getTitle());
+    	this.getSubtitle().setText(chartDef.getSubtitle());
+    	this.getXAxis().setTitle(new Title(chartDef.getxAxisTitle()));
+    	this.getYAxis().setTitle(new Title(chartDef.getyAxisTitle()));
+    	
+    	//Set up categories
+    	for(String category : chartDef.getCategories()){
+    		this.getXAxis().getCategories().add(category);
+    	}
+    	
+    	//Set up series
+    	for(Series series : chartDef.getSeries()){
+    		this.getSeries().pushElement(series);
+    	}
+    }
+    
 	public void addSeries(String name, double[] data ) {
-//		Series newSeries = new Series().setName( seriesName );
-//        final JsonArray<Point> seriesDatas = newSeries.getData();
-//        for ( double d : data ) {
-//            seriesDatas.pushElement( new Point().setY( d ) );
-//        }
         this.getSeries().pushElement( new Series(name, data) );
     }
 
@@ -129,5 +153,9 @@ public class ChartOptions extends BaseObject {
         }
         return yAxis;
     }
+
+	public void setPlotOptions(PlotOptions plotOptions) {
+		this.plotOptions = plotOptions;
+	}
 
 }
