@@ -64,8 +64,11 @@ public class ChartDefinition extends ChartData{
 		super.setSeries(chartOptions.getSeries());
 	}
 	
-	public void toTableHtml(){
-		
+	public String toHtml(){
+		StringBuilder html= new StringBuilder();
+		html.append("<span id='data-table-title'>"+this.title+" - "+this.subtitle+"</span><br/>");
+		html.append(super.toHtmlTable());
+		return html.toString();
 	}
 	
 	public String getTitle() {

@@ -1,9 +1,6 @@
 package nl.pvanassen.highchart.api.axis;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 import nl.pvanassen.highchart.api.base.BaseObject;
 
@@ -16,6 +13,9 @@ public class AxisLabels extends BaseObject {
 
     @XmlElement
     private String align;
+    
+    @XmlElement
+    private boolean enabled;
 
     public String getAlign() {
         return align;
@@ -34,5 +34,17 @@ public class AxisLabels extends BaseObject {
         this.rotation = rotation;
         return this;
     }
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public void setRotation(Double rotation) {
+		this.rotation = rotation;
+	}
 
 }

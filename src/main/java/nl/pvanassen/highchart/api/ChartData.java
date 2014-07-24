@@ -34,6 +34,39 @@ public class ChartData extends BaseObject{
 		this.categories=chartDef.getCategories();
 	}
 	
+	public String toHtmlTable(){
+		StringBuilder table = new StringBuilder();
+		table.append("<table id='data-table'>");
+		//Headings Out
+		table.append("<thead><tr>");
+		table.append("<th>Caterory</th>");
+		for(Series series : this.series){
+			table.append("<th>");
+			table.append(series.getName());
+			table.append("</th>");
+		}
+		table.append("</tr></thead>");
+		
+		//Data Out
+		table.append("<tbody>");
+		int i=0;
+		for(String category: this.categories){
+			table.append("<tr>");
+			table.append("<td>"+category+"</td>");
+			for(Series series : this.series){
+				table.append("<td>");
+				if(series.getData()!=null && i<series.getData().size() && series.getData().get(i)!=null){
+					table.append(series.getData().get(i).getY());
+				}
+				table.append("</td>");
+			}
+			table.append("</tr>");
+			i++;
+		}
+		table.append("</tbody></table>");
+		return table.toString();
+	}
+	
 	public List<Series> getSeries() {
 		return series;
 	}

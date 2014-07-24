@@ -24,7 +24,7 @@ public enum ChartType {
 	public PlotOptions getPlotOptions(){
 		PlotOptions plotOptions = new PlotOptions();
 		if("bar".equals(this.name()))
-			plotOptions.getBar().setBorderWidth(0);		
+			plotOptions.getBar();		
 		if("column".equals(this.name()))
 			plotOptions.getColumn().setBorderWidth(0);
 		if("barStack".equals(this.name()))

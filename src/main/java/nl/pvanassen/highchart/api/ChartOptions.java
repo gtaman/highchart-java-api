@@ -60,6 +60,12 @@ public class ChartOptions extends BaseObject {
     	this.getSubtitle().setText(chartDef.getSubtitle());
     	this.getXAxis().setTitle(new Title(chartDef.getxAxisTitle()));
     	this.getYAxis().setTitle(new Title(chartDef.getyAxisTitle()));
+    	this.getYAxis().getLabels().setEnabled(true);
+    	this.getXAxis().getLabels().setEnabled(true);
+    	this.getChart().setMarginLeft(75);
+    	this.getChart().setMarginRight(20);
+    	this.getChart().setMarginTop(75);
+    	this.getChart().setMarginBottom(75);
     	
     	//Set up categories
     	for(String category : chartDef.getCategories()){
