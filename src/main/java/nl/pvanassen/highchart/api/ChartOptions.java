@@ -62,10 +62,15 @@ public class ChartOptions extends BaseObject {
     	this.getYAxis().setTitle(new Title(chartDef.getyAxisTitle()));
     	this.getYAxis().getLabels().setEnabled(true);
     	this.getXAxis().getLabels().setEnabled(true);
-    	this.getChart().setMarginLeft(75);
+    	this.getChart().setMarginLeft(110);
     	this.getChart().setMarginRight(20);
     	this.getChart().setMarginTop(75);
     	this.getChart().setMarginBottom(75);
+    	
+    	if(chartDef.isCurrency()){
+    		this.getTooltip().setPointFormat("${point.y:.2f}");
+    		this.getYAxis().getLabels().setFormat("${value}");
+    	}
     	
     	//Set up categories
     	for(String category : chartDef.getCategories()){

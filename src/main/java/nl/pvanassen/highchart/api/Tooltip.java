@@ -1,8 +1,6 @@
 package nl.pvanassen.highchart.api;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.*;
 
 import nl.pvanassen.highchart.api.base.BaseObject;
 
@@ -14,6 +12,9 @@ public class Tooltip extends BaseObject {
 
     @XmlElement
     private Boolean shared;
+    
+    @XmlElement
+    private String pointFormat;
 
     public boolean isCrosshairs() {
         return crosshairs;
@@ -32,5 +33,13 @@ public class Tooltip extends BaseObject {
         this.shared = shared;
         return this;
     }
+
+	public String getPointFormat() {
+		return pointFormat;
+	}
+
+	public void setPointFormat(String pointFormat) {
+		this.pointFormat = pointFormat;
+	}
 
 }

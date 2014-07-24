@@ -15,6 +15,8 @@ import nl.pvanassen.highchart.api.base.BaseObject;
 public class ChartData extends BaseObject{
 	private List<Series> series = new ArrayList<Series>();
 	private List<String> categories = new ArrayList<String>();
+	private boolean isCurrency = false; 
+	private boolean isRemoteDataSet = false;
 	private URI dataURI;
 	
 	public ChartData(){}
@@ -84,6 +86,22 @@ public class ChartData extends BaseObject{
 	}
 	public void setDataURI(URI dataURI) {
 		this.dataURI = dataURI;
+	}
+
+	public boolean isCurrency() {
+		return isCurrency;
+	}
+
+	public void setCurrency(boolean isCurrency) {
+		this.isCurrency = isCurrency;
+	}
+
+	public boolean isRemoteDataSet() {
+		return isRemoteDataSet;
+	}
+
+	public void setRemoteDataSet(boolean isRemoteDataSet) {
+		this.isRemoteDataSet = isRemoteDataSet;
 	}
 	
 }

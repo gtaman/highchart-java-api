@@ -16,6 +16,12 @@ public class AxisLabels extends BaseObject {
     
     @XmlElement
     private boolean enabled;
+    
+    @XmlElement
+    private String format;
+    
+    @XmlElement
+    private String formatter;
 
     public String getAlign() {
         return align;
@@ -45,6 +51,22 @@ public class AxisLabels extends BaseObject {
 
 	public void setRotation(Double rotation) {
 		this.rotation = rotation;
+	}
+
+	public String getFormat() {
+		return format;
+	}
+
+	public void setFormat(String format) {
+		this.format = format;
+	}
+
+	public String getFormatter() {
+		return formatter;
+	}
+
+	public void setFormatter(String formatter) {
+		this.formatter = formatter;
 	}
 
 }
