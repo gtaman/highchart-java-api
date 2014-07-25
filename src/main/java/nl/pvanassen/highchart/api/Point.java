@@ -1,8 +1,6 @@
 package nl.pvanassen.highchart.api;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.*;
 
 import nl.pvanassen.highchart.api.base.BaseObject;
 
@@ -22,6 +20,11 @@ public class Point extends BaseObject {
     private String  name;
 
     public Point() {
+    }
+    
+    public Point(String name, Double y){
+    	this.name=name;
+    	this.y=y;
     }
 
     public String getColor() {

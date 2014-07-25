@@ -15,7 +15,10 @@ public class Tooltip extends BaseObject {
     
     @XmlElement
     private String pointFormat;
-
+    
+    @XmlElement
+    private String valueSuffix;
+    
     public boolean isCrosshairs() {
         return crosshairs;
     }
@@ -40,6 +43,30 @@ public class Tooltip extends BaseObject {
 
 	public void setPointFormat(String pointFormat) {
 		this.pointFormat = pointFormat;
+	}
+
+	public Boolean getCrosshairs() {
+		return crosshairs;
+	}
+
+	public void setCrosshairs(Boolean crosshairs) {
+		this.crosshairs = crosshairs;
+	}
+
+	public Boolean getShared() {
+		return shared;
+	}
+
+	public void setShared(Boolean shared) {
+		this.shared = shared;
+	}
+
+	public String getValueSuffix() {
+		return valueSuffix;
+	}
+
+	public void setValueSuffix(String valueSuffix) {
+		this.valueSuffix = valueSuffix;
 	}
 
 }

@@ -58,18 +58,28 @@ public class ChartOptions extends BaseObject {
     	//Set up titles
     	this.getTitle().setText(chartDef.getTitle());
     	this.getSubtitle().setText(chartDef.getSubtitle());
-    	this.getXAxis().setTitle(new Title(chartDef.getxAxisTitle()));
-    	this.getYAxis().setTitle(new Title(chartDef.getyAxisTitle()));
-    	this.getYAxis().getLabels().setEnabled(true);
-    	this.getXAxis().getLabels().setEnabled(true);
-    	this.getChart().setMarginLeft(110);
-    	this.getChart().setMarginRight(20);
-    	this.getChart().setMarginTop(75);
-    	this.getChart().setMarginBottom(75);
     	
-    	if(chartDef.isCurrency()){
-    		this.getTooltip().setPointFormat("${point.y:.2f}");
-    		this.getYAxis().getLabels().setFormat("${value}");
+    	if(chartDef.getChartType()!=ChartType.pie){//These options don't apply to pie
+	    	this.getXAxis().setTitle(new Title(chartDef.getxAxisTitle()));
+	    	this.getYAxis().setTitle(new Title(chartDef.getyAxisTitle()));
+	    	this.getYAxis().getLabels().setEnabled(true);
+	    	this.getXAxis().getLabels().setEnabled(true);
+	    	//Set so it doesn't cut off incomplete data - may not want this
+	    	this.getXAxis().setMax(chartDef.getCategories().size()-1);
+	    	this.getChart().setMarginLeft(110);
+	    	this.getChart().setMarginRight(20);
+	    	this.getChart().setMarginTop(75);
+	    	this.getChart().setMarginBottom(75);
+	    	
+	    	if(chartDef.isCurrency()){
+	    		this.getTooltip().setPointFormat("${point.y:.2f}");
+	    		this.getYAxis().getLabels().setFormat("${value}");
+	    	}
+    	}
+    	else{
+    		this.getChart().setMarginTop(50);
+    		this.getTooltip().setValueSuffix("%");
+    		this.getTooltip().setShared(true);
     	}
     	
     	//Set up categories

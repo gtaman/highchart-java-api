@@ -30,6 +30,15 @@ public class ChartDefinition extends ChartData{
 		this.chartType=chartType;
 	}
 	
+	public ChartDefinition(List<Series> series, String title, String subtitle, String xAxisTitle, String yAxisTitle, ChartType chartType){
+		super.setSeries(series);
+		this.title=title;
+		this.subtitle=subtitle;
+		this.xAxisTitle=xAxisTitle;
+		this.yAxisTitle=yAxisTitle;
+		this.chartType=chartType;
+	}
+	
 	public ChartDefinition(ChartOptions chartOptions){
 		String seriesType = chartOptions.getChart().getDefaultSeriesType();
 		PlotOptions plotOptions = chartOptions.getPlotOptions();

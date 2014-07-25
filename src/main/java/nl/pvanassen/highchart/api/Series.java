@@ -1,10 +1,11 @@
 package nl.pvanassen.highchart.api;
 
+import java.util.*;
+
 import javax.xml.bind.annotation.*;
 
 import nl.pvanassen.highchart.api.base.BaseObject;
 import nl.pvanassen.highchart.api.plotoption.PlotMarkerStates;
-import nl.pvanassen.highchart.api.serie.SeriesCenter;
 import nl.pvanassen.highchart.api.utils.JsonArray;
 
 @XmlAccessorType( XmlAccessType.NONE )
@@ -27,9 +28,10 @@ public class Series extends BaseObject {
     private String           type;
 
     @XmlElement
-    private String           size;
+    private Integer           size;
 
-    private SeriesCenter     center;
+    @XmlElement
+    private List<Integer>     center;
     
     public Series(){};
     
@@ -50,14 +52,6 @@ public class Series extends BaseObject {
         }
     }
 
-    public String getCenterX() {
-        return ( center != null ) ? center.getX() : null;
-    }
-
-    public String getCenterY() {
-        return ( center != null ) ? center.getY() : null;
-    }
-
     public String getColor() {
         return color;
     }
@@ -74,7 +68,7 @@ public class Series extends BaseObject {
         return name;
     }
 
-    public String getSize() {
+    public Integer getSize() {
         return size;
     }
 
@@ -89,13 +83,11 @@ public class Series extends BaseObject {
         return type;
     }
 
-    public Series setCenter( String x, String y ) {
-        if ( center == null ) {
-            center = new SeriesCenter();
-        }
-        center.setX( x );
-        center.setY( y );
-        return this;
+    public Series setCenter( Integer x, Integer y ) {
+    	center= new ArrayList<Integer>();
+    	center.add(x);
+    	center.add(y);
+    	return this;
     }
 
     public Series setColor( String color ) {
@@ -114,7 +106,7 @@ public class Series extends BaseObject {
         return this;
     }
 
-    public Series setSize( String size ) {
+    public Series setSize( int size ) {
         this.size = size;
         return this;
     }
