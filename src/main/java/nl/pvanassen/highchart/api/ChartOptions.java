@@ -76,10 +76,28 @@ public class ChartOptions extends BaseObject {
 	    		this.getYAxis().getLabels().setFormat("${value}");
 	    	}
     	}
-    	else{
+    	else{//Pie chart
     		this.getChart().setMarginTop(50);
     		this.getTooltip().setValueSuffix("%");
     		this.getTooltip().setShared(true);
+    		if(chartDef.getIs3d()){
+    			this.getPlotOptions().getPie().setDepth(35);
+    		}
+    	}
+    	
+    	if(chartDef.getIs3d()){
+    		Options3d options3d = new Options3d();
+    		options3d.setEnabled(true);
+    		options3d.setAlpha(15);
+    		options3d.setBeta(15);
+    		options3d.setDepth(50);
+    		options3d.setViewDistance(25);
+    		if(chartDef.getChartType()==ChartType.pie){
+    			options3d.setAlpha(45);
+    			options3d.setBeta(0);
+    		}
+    		this.getChart().setOptions3d(options3d);
+    		this.getChart().setMarginRight(50);
     	}
     	
     	//Set up categories

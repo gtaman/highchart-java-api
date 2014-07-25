@@ -1,9 +1,6 @@
 package nl.pvanassen.highchart.api.plotoption;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 import nl.pvanassen.highchart.api.base.BaseObject;
 
@@ -33,6 +30,9 @@ public class PlotOptionsSeries extends BaseObject {
     private Double fillOpacity;
 
     private Integer borderWidth;
+    
+    @XmlElement
+    private Integer depth;
     
     @XmlElement
     private PlotColor fillColor;
@@ -124,5 +124,13 @@ public class PlotOptionsSeries extends BaseObject {
         }
         return fillColor;
     }
+
+	public Integer getDepth() {
+		return depth;
+	}
+
+	public void setDepth(Integer depth) {
+		this.depth = depth;
+	}
     
 }

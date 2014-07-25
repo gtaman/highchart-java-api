@@ -23,6 +23,8 @@ public class Chart extends BaseObject {
     private int     marginLeft;
 
     private int     marginTop;
+    
+    private Options3d options3d;
 
     public String getBackgroundColor() {
         return backgroundColor;
@@ -131,6 +133,14 @@ public class Chart extends BaseObject {
 
 	public void setDefaultSeriesType(String defaultSeriesType) {
 		this.defaultSeriesType = defaultSeriesType;
+	}
+
+	public Options3d getOptions3d() {
+		return options3d;
+	}
+
+	public void setOptions3d(Options3d options3d) {
+		this.options3d = options3d;
 	}
 
 }

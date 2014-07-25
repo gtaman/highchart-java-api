@@ -17,17 +17,23 @@ public class ChartDefinition extends ChartData{
 	private String yAxisTitle;
 	private ChartType chartType;
 	private Boolean showEmptyCategories;
+	private Boolean is3d = false;
 	
 	public ChartDefinition(){}
 	
+	public ChartDefinition(List<Series> series, List<String> categories, String title, String subtitle, String xAxisTitle, String yAxisTitle, ChartType chartType, Boolean is3d){
+		this(series,categories,title,subtitle,xAxisTitle,yAxisTitle,chartType);
+		this.is3d=is3d;
+	}
+	
 	public ChartDefinition(List<Series> series, List<String> categories, String title, String subtitle, String xAxisTitle, String yAxisTitle, ChartType chartType){
-		super.setSeries(series);
+		this(series,title,subtitle,xAxisTitle,yAxisTitle,chartType);
 		super.setCategories(categories);
-		this.title=title;
-		this.subtitle=subtitle;
-		this.xAxisTitle=xAxisTitle;
-		this.yAxisTitle=yAxisTitle;
-		this.chartType=chartType;
+	}
+	
+	public ChartDefinition(List<Series> series, String title, String subtitle, String xAxisTitle, String yAxisTitle, ChartType chartType, Boolean is3d){
+		this(series,title,subtitle,xAxisTitle,yAxisTitle,chartType);
+		this.is3d=is3d;
 	}
 	
 	public ChartDefinition(List<Series> series, String title, String subtitle, String xAxisTitle, String yAxisTitle, ChartType chartType){
@@ -73,6 +79,8 @@ public class ChartDefinition extends ChartData{
 		super.setSeries(chartOptions.getSeries());
 	}
 	
+	
+
 	public String toHtml(){
 		StringBuilder html= new StringBuilder();
 		html.append("<span id='data-table-title'>"+this.title+" - "+this.subtitle+"</span><br/>");
@@ -123,5 +131,13 @@ public class ChartDefinition extends ChartData{
 	
 	public ChartData getChartData(){
 		return new ChartData(this);
+	}
+
+	public Boolean getIs3d() {
+		return is3d;
+	}
+
+	public void setIs3d(Boolean is3d) {
+		this.is3d = is3d;
 	}
 }
