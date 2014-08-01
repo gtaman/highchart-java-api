@@ -17,6 +17,7 @@ public class ChartData extends BaseObject {
 	private boolean isCurrency = false;
 	private boolean isRemoteDataSet = false;
 	private URI dataURI;
+	private String connectorClass;
 
 	public ChartData() {
 	}
@@ -124,6 +125,14 @@ public class ChartData extends BaseObject {
 
 	public void setRemoteDataSet(boolean isRemoteDataSet) {
 		this.isRemoteDataSet = isRemoteDataSet;
+	}
+
+	public String getConnectorClass() {
+		return connectorClass;
+	}
+
+	public void setConnectorClass(String connectorClass) {
+		this.connectorClass = connectorClass;
 	}
 
 }

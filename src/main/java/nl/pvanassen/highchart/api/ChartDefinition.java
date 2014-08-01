@@ -1,6 +1,6 @@
 package nl.pvanassen.highchart.api;
 
-import java.util.List;
+import java.util.*;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -15,9 +15,12 @@ public class ChartDefinition extends ChartData{
 	private String subtitle;
 	private String xAxisTitle;
 	private String yAxisTitle;
+	private String description;
+	private Date dateCreated;
 	private ChartType chartType;
-	private Boolean showEmptyCategories;
-	private Boolean is3d = false;
+	private boolean showEmptyCategories = false;
+	private boolean is3d = false;
+	private boolean isRemoteDefinition = false;
 	
 	public ChartDefinition(){}
 	
@@ -78,8 +81,6 @@ public class ChartDefinition extends ChartData{
 		super.setCategories(chartOptions.getXAxis().getCategories());
 		super.setSeries(chartOptions.getSeries());
 	}
-	
-	
 
 	public String toHtml(){
 		StringBuilder html= new StringBuilder();
@@ -120,24 +121,48 @@ public class ChartDefinition extends ChartData{
 	public void setChartType(ChartType chartType) {
 		this.chartType = chartType;
 	}
-
-	public Boolean getShowEmptyCategories() {
-		return showEmptyCategories;
-	}
-
-	public void setShowEmptyCategories(Boolean showEmptyCategories) {
-		this.showEmptyCategories = showEmptyCategories;
-	}
 	
 	public ChartData getChartData(){
 		return new ChartData(this);
 	}
 
-	public Boolean getIs3d() {
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Date getDateCreated() {
+		return dateCreated;
+	}
+
+	public void setDateCreated(Date dateCreated) {
+		this.dateCreated = dateCreated;
+	}
+
+	public boolean isShowEmptyCategories() {
+		return showEmptyCategories;
+	}
+
+	public void setShowEmptyCategories(boolean showEmptyCategories) {
+		this.showEmptyCategories = showEmptyCategories;
+	}
+
+	public boolean isIs3d() {
 		return is3d;
 	}
 
-	public void setIs3d(Boolean is3d) {
+	public void setIs3d(boolean is3d) {
 		this.is3d = is3d;
+	}
+
+	public boolean isRemoteDefinition() {
+		return isRemoteDefinition;
+	}
+
+	public void setRemoteDefinition(boolean isRemoteDefinition) {
+		this.isRemoteDefinition = isRemoteDefinition;
 	}
 }
